@@ -29,7 +29,7 @@ namespace WpfApp1
         {
 
         }
-        Boolean language = false; // false - Russian, true - English
+        Boolean language = true; // false - Russian, true - English
         byte measure_system = 1; // 1 - meters, 2 - centimetrs, 3 - inches
         string metr_ru = "м";
         string metr_en = "m";
@@ -52,26 +52,29 @@ namespace WpfApp1
         float wallarea = 0;
         float perimetr = 0;
         float groundarea = 0;
+        float height1;
+        float width1;
+        float length1;
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            float height1 = float.Parse(height_textbox.Text);
-            float width1 = float.Parse(width_textbox.Text);
-            float length1 = float.Parse(length_textbox.Text);
-            wallarea = (width1*height1+length1*height1) * 2;
+            height1 = float.Parse(height_textbox.Text);
+            width1 = float.Parse(width_textbox.Text);
+            length1 = float.Parse(length_textbox.Text);
+            wallarea = (width1 * height1 + length1 * height1) * 2;
             perimetr = (width1 + length1) * 2;
             groundarea = width1 * length1;
             wallArea_textbox.Text = wallarea.ToString();
             perimetr_textbox.Text = perimetr.ToString();
             ground_textbox.Text = groundarea.ToString();
-        }
 
+        }
         private void Button_Click_2(object sender, RoutedEventArgs e) //language button
         {
             language = !language;
             if (language)
             {
                 
-                language_bt.Content = "Русский";
+                language_bt.Content = "English";
                 switch (measure_system)
                 {
                     case 1:
@@ -81,6 +84,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + metr_ru;
                         groundarea_label.Content = groundarea_ru + ", " + metr_ru;
                         wallArea_label.Content = wallarea_ru + ", " + metr_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + metr_ru + "\u00B2";
                         measure_bt.Content = "Метры";
                         break;
                     case 2:
@@ -90,6 +94,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + centim_ru;
                         width_label.Content = width_ru + ", " + centim_ru;
                         wallArea_label.Content = wallarea_ru + ", " + centim_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + centim_ru + "\u00B2";
                         measure_bt.Content = "Сантиметры";
                         break;
                     case 3:
@@ -99,13 +104,14 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + inch_ru;
                         width_label.Content = width_ru + ", " + inch_ru;
                         wallArea_label.Content = wallarea_ru + ", " + inch_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + inch_ru + "\u00B2";
                         measure_bt.Content = "Дюймы";
                         break;
                 }
             }
             else
             {
-                language_bt.Content = "English";
+                language_bt.Content = "Русский";
                 switch (measure_system)
                 {
                     case 1:
@@ -115,6 +121,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + metr_en;
                         groundarea_label.Content = groundarea_en + ", " + metr_en;
                         wallArea_label.Content = wallarea_en + ", " + metr_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + metr_en + "\u00B2";
                         measure_bt.Content = "Meters";
                         break;
                     case 2:
@@ -124,6 +131,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + centim_en;
                         width_label.Content = width_en + ", " + centim_en;
                         wallArea_label.Content = wallarea_en + ", " + centim_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + centim_en + "\u00B2";
                         measure_bt.Content = "Centimetrs";
                         break;
                     case 3:
@@ -133,6 +141,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + inch_en;
                         width_label.Content = width_en + ", " + inch_en;
                         wallArea_label.Content = wallarea_en + ", " + inch_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + inch_en + "\u00B2";
                         measure_bt.Content = "Inches";
                         break;
                 }
@@ -141,10 +150,16 @@ namespace WpfApp1
 
         private void Button_Click_3(object sender, RoutedEventArgs e) // measure system button
         {
-
+            if (measure_system < 3) measure_system += 1; else measure_system = 1;
             switch (measure_system)
             {
                 case 1:
+                    wallarea = wallarea * 254 / 10000;
+                    perimetr = perimetr * 254 / 10000;
+                    groundarea = groundarea * 254 / 10000;
+                    wallArea_textbox.Text = wallarea.ToString();
+                    perimetr_textbox.Text = perimetr.ToString();
+                    ground_textbox.Text = groundarea.ToString();
                     if (language)
                     {
                         width_label.Content = width_ru + ", " + metr_ru;
@@ -153,6 +168,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + metr_ru;
                         groundarea_label.Content = groundarea_ru + ", " + metr_ru;
                         wallArea_label.Content = wallarea_ru + ", " + metr_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + metr_ru + "\u00B2";
                         measure_bt.Content = "Метры";
                     }
                     else
@@ -163,11 +179,18 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + metr_en;
                         groundarea_label.Content = groundarea_en + ", " + metr_en;
                         wallArea_label.Content = wallarea_en + ", " + metr_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + metr_en + "\u00B2";
                         measure_bt.Content = "Meters";
                     }
-                    measure_system += 1;
+                    
                     break;
                 case 2:
+                    wallarea = wallarea * 100;
+                    perimetr = perimetr * 100;
+                    groundarea = groundarea * 100;                      //  5/2,55 = 2 => 5*100/255 = 2
+                    wallArea_textbox.Text = wallarea.ToString();
+                    perimetr_textbox.Text = perimetr.ToString();
+                    ground_textbox.Text = groundarea.ToString();
                     if (language)
                     {
                         width_label.Content = width_ru + ", " + centim_ru;
@@ -176,6 +199,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + centim_ru;
                         width_label.Content = width_ru + ", " + centim_ru;
                         wallArea_label.Content = wallarea_ru + ", " + centim_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + centim_ru + "\u00B2";
                         measure_bt.Content = "Сантиметры";
                     }
                     else
@@ -186,11 +210,18 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + centim_en;
                         width_label.Content = width_en + ", " + centim_en;
                         wallArea_label.Content = wallarea_en + ", " + centim_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + centim_en + "\u00B2";
                         measure_bt.Content = "Centimetrs";
                     }
-                    measure_system += 1;
+                    
                     break;
                 case 3:
+                    wallarea = wallarea * 100 / 254;
+                    perimetr = perimetr * 100 / 254;
+                    groundarea = groundarea * 100 / 254;
+                    wallArea_textbox.Text = wallarea.ToString();
+                    perimetr_textbox.Text = perimetr.ToString();
+                    ground_textbox.Text = groundarea.ToString();
                     if (language)
                     {
                         width_label.Content = width_ru + ", " + inch_ru;
@@ -199,6 +230,7 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_ru + ", " + inch_ru;
                         width_label.Content = width_ru + ", " + inch_ru;
                         wallArea_label.Content = wallarea_ru + ", " + inch_ru + "\u00B2";
+                        groundarea_label.Content = groundarea_ru + ", " + inch_ru + "\u00B2";
                         measure_bt.Content = "Дюймы";
                     }
                     else
@@ -209,9 +241,10 @@ namespace WpfApp1
                         perimetr_label.Content = perimetr_en + ", " + inch_en;
                         width_label.Content = width_en + ", " + inch_en;
                         wallArea_label.Content = wallarea_en + ", " + inch_en + "\u00B2";
+                        groundarea_label.Content = groundarea_en + ", " + inch_en + "\u00B2";
                         measure_bt.Content = "Inches";
                     }
-                    measure_system = 1;
+                    
                     break;
             }    
 

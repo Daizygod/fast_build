@@ -7,26 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="780">
-        <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Button x:Name="measure_bt" Content="Метрическая система - Метры" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Width="189" Click="Button_Click_3"/>
-        <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="146,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="291,59,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="371,59,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3"/>
+        <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="130,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
         <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="287,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="434,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="434,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
 
-        <Label x:Name="width_label" Content="Ширина, м" HorizontalAlignment="Left" Margin="146,153,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="width_label" Content="Ширина, м" HorizontalAlignment="Left" Margin="130,153,0,0" VerticalAlignment="Top" Width="136"/>
         <Label x:Name="height_label" Content="Высота, м" HorizontalAlignment="Left" Margin="434,153,0,0" VerticalAlignment="Top" Width="141"/>
         <Label x:Name="length_label" Content="Длина, м" HorizontalAlignment="Left" Margin="287,153,0,0" VerticalAlignment="Top" Width="120"/>
 
 
-        <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="146,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="130,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
         <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="287,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="434,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="434,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
         <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="287,288,0,0" VerticalAlignment="Top" Width="120" Height="23" Click="Button_Click_1"/>
 
 
-        <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="146,224,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="130,224,0,0" VerticalAlignment="Top" Width="152"/>
         <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="287,224,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="434,224,0,0" VerticalAlignment="Top" Width="183"/>
+        <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="434,224,0,0" VerticalAlignment="Top" Width="221"/>
     </Grid>
 
 </Window>
