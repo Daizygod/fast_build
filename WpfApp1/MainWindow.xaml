@@ -24,7 +24,7 @@
             <Button x:Name="history_button" Content="История расчётов" Grid.Column="2" HorizontalAlignment="Left" Margin="248,7,0,0" VerticalAlignment="Top" Width="132"/>
         </Grid>
         <Grid x:Name="paint_options_grid" HorizontalAlignment="Left" Height="285" Margin="547,186,0,0" VerticalAlignment="Top" Width="229">
-            <Button x:Name="do_calculation" Content="Рассчитать" HorizontalAlignment="Left" Margin="55,249,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
+            <Button x:Name="do_calculation" Content="Рассчитать" HorizontalAlignment="Left" Margin="55,207,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
 
 
             <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top"/>
@@ -43,6 +43,7 @@
                     <TextBlock x:Name="sad" Text="Углы между стенами не 90°"/>
                 </StackPanel>
             </ComboBox>
+            <Button x:Name="clear_button" Content="Очистить всё" HorizontalAlignment="Left" Margin="55,238,0,0" VerticalAlignment="Top" Width="120" Height="25" Click="Clear_button_Click"/>
         </Grid>
         <Grid x:Name="grid_paint_calc" HorizontalAlignment="Left" Height="174" Margin="15,123,0,0" VerticalAlignment="Top" Width="537">
 
@@ -67,28 +68,13 @@
 
 
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="169" Margin="15,302,0,0" VerticalAlignment="Top" Width="532">
+        <Grid HorizontalAlignment="Left" Height="189" Margin="15,302,0,0" VerticalAlignment="Top" Width="532">
             <TextBox x:Name="space_width_textbox" HorizontalAlignment="Left" Height="23" Margin="20,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="132"/>
             <TextBox x:Name="space_height_textbox" HorizontalAlignment="Left" Height="23" Margin="177,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="116"/>
             <Button x:Name="add_free_space" Content="Добавить проем" HorizontalAlignment="Left" Margin="319,31,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_5" Height="23"/>
             <Label x:Name="space_width_label" Content="Ширина проема" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Width="132"/>
             <Label x:Name="space_height_label" Content="Высота проема" HorizontalAlignment="Left" Margin="177,5,0,0" VerticalAlignment="Top" Width="132"/>
-            <ListView ItemsSource="{Binding SourceCollection}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Test1" DisplayMemberBinding="{Binding Test1}" />
-                        <GridViewColumn Header="Test2" DisplayMemberBinding="{Binding Test2}" />
-                        <GridViewColumn Header="Test3" DisplayMemberBinding="{Binding Test3}" />
-                        <GridViewColumn Header="Button">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button>Button Text</Button>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox x:Name="space_listbox" HorizontalAlignment="Left" Height="100" Margin="20,69,0,0" VerticalAlignment="Top" Width="396" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
         </Grid>
 
     </Grid>

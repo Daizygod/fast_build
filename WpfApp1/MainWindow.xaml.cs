@@ -60,6 +60,10 @@ namespace WpfApp1
         float height1;
         float width1;
         float length1;
+        float space_width;
+        float space_height;
+        float space_square;
+        int space_id = 0;
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             height1 = float.Parse(height_textbox.Text);
@@ -72,6 +76,11 @@ namespace WpfApp1
             perimetr_textbox.Text = perimetr.ToString();
             ground_textbox.Text = groundarea.ToString();
 
+            
+
+
+
+
         }
         private void Button_Click_2(object sender, RoutedEventArgs e) //language button
         {
@@ -79,12 +88,6 @@ namespace WpfApp1
             if (language)
             {
                 simple_room.Text = "Обычная комната";
-                
-
-                /*string str = paint_calcs_combobox.Text;
-                ComboBoxItem cbi = (ComboBoxItem)paint_calcs_combobox.SelectedItem;
-                string str1 = cbi.Content.ToString();
-                string val = paint_calcs_combobox.SelectedValue.ToString();*/
 
                 language_bt.Content = "English";
                 switch (measure_system)
@@ -321,7 +324,34 @@ namespace WpfApp1
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
+            space_id++;
+            space_width = float.Parse(space_width_textbox.Text);
+            space_height = float.Parse(space_height_textbox.Text);
+            space_square = space_width * space_height;
+            space_listbox.Items.Add("Проем №" + space_id + ", Ширина - " + space_width +  ", Высота - " + space_height + ", Площадь - " + space_square + " " + measure_system);
+           // space_width_listbox.Items.Add(space_width);
+           // space_height_listbox.Items.Add(space_height);
+           // space_square_listbox.Items.Add(space_width* space_height);
+            //string position_of = space_height_listbox.ScrollIntoView(space_height_listbox.SelectedIndex);
+            
+            //MessageBox.Show(selected_type_of_calc.ToString());
+        }
 
+        
+        private void Space_history_listview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Clear_button_Click(object sender, RoutedEventArgs e)
+        {
+            space_id = 0;
+            space_listbox.Items.Clear();
         }
     }
 }
