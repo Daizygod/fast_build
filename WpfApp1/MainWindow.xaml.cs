@@ -18,12 +18,17 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            grid_paint_calc.Visibility = Visibility.Hidden;
+            paint_options_grid.Visibility = Visibility.Hidden;
+
         }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +78,14 @@ namespace WpfApp1
             language = !language;
             if (language)
             {
+                simple_room.Text = "Обычная комната";
                 
+
+                /*string str = paint_calcs_combobox.Text;
+                ComboBoxItem cbi = (ComboBoxItem)paint_calcs_combobox.SelectedItem;
+                string str1 = cbi.Content.ToString();
+                string val = paint_calcs_combobox.SelectedValue.ToString();*/
+
                 language_bt.Content = "English";
                 switch (measure_system)
                 {
@@ -112,6 +124,7 @@ namespace WpfApp1
             else
             {
                 language_bt.Content = "Русский";
+                simple_room.Text = "Simple room";
                 switch (measure_system)
                 {
                     case 1:
@@ -249,24 +262,66 @@ namespace WpfApp1
             }    
 
         }
+ 
+        Boolean grid_paint1 = true;
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        public object RootLayout { get; private set; }
 
-        }
-        Boolean visible_grid1 = true;
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            if (visible_grid1)
+            if (grid_paint1)
             {
-                grid_default_simple.Visibility = Visibility.Visible;
-                visible_grid1 = !visible_grid1;
+                grid_paint_calc.Visibility = Visibility.Visible;
+                paint_options_grid.Visibility = Visibility.Visible;
+                grid_paint1 = !grid_paint1;
+                paint_calcs_btn.Visibility = Visibility.Hidden;
             }
             else
             {
-                grid_default_simple.Visibility = Visibility.Hidden;
-                visible_grid1 = !visible_grid1;
+                grid_paint_calc.Visibility = Visibility.Hidden;
+                paint_options_grid.Visibility = Visibility.Hidden;
+
+                grid_paint1 = !grid_paint1;
             }
+        }
+
+        private void Main_menu_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!grid_paint1)
+            {
+                grid_paint_calc.Visibility = Visibility.Hidden;
+                paint_options_grid.Visibility = Visibility.Hidden;
+                paint_calcs_btn.Visibility = Visibility.Visible;
+
+                grid_paint1 = !grid_paint1;
+            }
+            
+        }
+
+        private void Paint_calcs_combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            byte selected_type_of_calc = Convert.ToByte(paint_calcs_combobox.SelectedIndex + 1);
+            //MessageBox.Show(selected_type_of_calc.ToString());
+            switch(selected_type_of_calc)
+            {
+                case 1:
+
+                break;
+                case 2:
+
+                break;
+                case 3:
+
+                break;
+                case 4:
+
+                break;
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

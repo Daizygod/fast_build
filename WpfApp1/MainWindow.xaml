@@ -5,75 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid HorizontalAlignment="Left" Height="403" Margin="0,-43,0,0" VerticalAlignment="Top" Width="770">
-        <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
+        Title="MainWindow" Height="544" Width="800">
+    <Grid HorizontalAlignment="Left" Height="518" Margin="0,-26,0,0" VerticalAlignment="Top" Width="790">
+        <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="93*"/>
                 <ColumnDefinition Width="36*"/>
                 <ColumnDefinition Width="641*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Расчёт комнаты без потолка" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click_4" Grid.ColumnSpan="2"/>
+
+
+            <Button x:Name="Main_menu_btn" Content="Главное меню" HorizontalAlignment="Left" Margin="13,37,0,0" VerticalAlignment="Top" Width="173" Grid.ColumnSpan="3" Click="Main_menu_btn_Click" FontSize="14"/>
+
+
+            <Button x:Name="paint_calcs_btn" Content="Малярные расчёты" HorizontalAlignment="Left" Margin="74,7,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click_4" Grid.Column="2"/>
+            <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="13,7,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" RenderTransformOrigin="0.511,0.483" FontSize="14"/>
+            <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="0,7,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14"/>
+            <Button x:Name="history_button" Content="История расчётов" Grid.Column="2" HorizontalAlignment="Left" Margin="248,7,0,0" VerticalAlignment="Top" Width="132"/>
         </Grid>
-        <Grid x:Name="grid_default_simple" HorizontalAlignment="Left" Height="360" Margin="10,50,0,0" VerticalAlignment="Top" Width="780">
-            <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="176,28,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-            <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="256,28,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3"/>
-            <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="123,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
-            <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="280,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="427,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
-
-            <Label x:Name="width_label" Content="Ширина комнаты, м" HorizontalAlignment="Left" Margin="123,90,0,0" VerticalAlignment="Top" Width="136"/>
-            <Label x:Name="height_label" Content="Высота комнаты, м" HorizontalAlignment="Left" Margin="427,90,0,0" VerticalAlignment="Top" Width="141"/>
-            <Label x:Name="length_label" Content="Длина комнаты, м" HorizontalAlignment="Left" Margin="280,90,0,0" VerticalAlignment="Top" Width="120"/>
+        <Grid x:Name="paint_options_grid" HorizontalAlignment="Left" Height="285" Margin="547,186,0,0" VerticalAlignment="Top" Width="229">
+            <Button x:Name="do_calculation" Content="Рассчитать" HorizontalAlignment="Left" Margin="55,249,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
 
 
-            <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="123,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
-            <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="280,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="427,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
-            <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="648,181,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
-
-
-            <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="123,161,0,0" VerticalAlignment="Top" Width="152"/>
-            <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="280,161,0,0" VerticalAlignment="Top" Width="120"/>
-            <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="427,161,0,0" VerticalAlignment="Top" Width="221"/>
-            <ListBox HorizontalAlignment="Left" Height="87" Margin="123,303,0,0" VerticalAlignment="Top" Width="459"/>
-            <ComboBox HorizontalAlignment="Left" Margin="548,25,0,0" VerticalAlignment="Top" Width="184" SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>
-                        обычная комната
-                        </TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>
-                        скошенный потолок
-                        </TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>
-                        разная высота углов
-                        </TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>
-                        не прямые углы между стен
-                        </TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
+            <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top"/>
+            <CheckBox Content="Выемы" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="paint_calcs_combobox" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="206" SelectionChanged="Paint_calcs_combobox_SelectionChanged" SelectedValue="0" SelectedIndex="0">
+                <StackPanel Orientation="Horizontal" x:Name="assd">
+                    <TextBlock x:Name="simple_room" Text="Обычная комната"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="angle_room" Text="Скошеным потолком"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="different_high" Text="Разная высота стен"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="sad" Text="Углы между стенами не 90°"/>
+                </StackPanel>
             </ComboBox>
-            <Label Content="Выбор типа расчёта" HorizontalAlignment="Left" Margin="427,22,0,0" VerticalAlignment="Top"/>
-            <CheckBox Content="Проемы" HorizontalAlignment="Left" Margin="648,126,0,0" VerticalAlignment="Top"/>
-            <CheckBox Content="Выемы" HorizontalAlignment="Left" Margin="648,146,0,0" VerticalAlignment="Top"/>
-            
+        </Grid>
+        <Grid x:Name="grid_paint_calc" HorizontalAlignment="Left" Height="174" Margin="15,123,0,0" VerticalAlignment="Top" Width="537">
+
+            <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="13,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
+            <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="170,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="317,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
+
+            <Label x:Name="width_label" Content="Ширина комнаты, м" HorizontalAlignment="Left" Margin="13,43,0,0" VerticalAlignment="Top" Width="136"/>
+            <Label x:Name="height_label" Content="Высота комнаты, м" HorizontalAlignment="Left" Margin="317,43,0,0" VerticalAlignment="Top" Width="141"/>
+            <Label x:Name="length_label" Content="Длина комнаты, м" HorizontalAlignment="Left" Margin="170,43,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+            <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="13,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
+            <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="170,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="317,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
+
+
+            <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="13,114,0,0" VerticalAlignment="Top" Width="152"/>
+            <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="170,114,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="317,114,0,0" VerticalAlignment="Top" Width="199"/>
+            <Label Content="Размеры комнаты" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+
 
         </Grid>
-        
+        <Grid HorizontalAlignment="Left" Height="169" Margin="15,302,0,0" VerticalAlignment="Top" Width="532">
+            <TextBox x:Name="space_width_textbox" HorizontalAlignment="Left" Height="23" Margin="20,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="space_height_textbox" HorizontalAlignment="Left" Height="23" Margin="177,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="116"/>
+            <Button x:Name="add_free_space" Content="Добавить проем" HorizontalAlignment="Left" Margin="319,31,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_5" Height="23"/>
+            <Label x:Name="space_width_label" Content="Ширина проема" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Width="132"/>
+            <Label x:Name="space_height_label" Content="Высота проема" HorizontalAlignment="Left" Margin="177,5,0,0" VerticalAlignment="Top" Width="132"/>
+            <ListView ItemsSource="{Binding SourceCollection}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Test1" DisplayMemberBinding="{Binding Test1}" />
+                        <GridViewColumn Header="Test2" DisplayMemberBinding="{Binding Test2}" />
+                        <GridViewColumn Header="Test3" DisplayMemberBinding="{Binding Test3}" />
+                        <GridViewColumn Header="Button">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button>Button Text</Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
     </Grid>
-    
+
 </Window>
