@@ -27,7 +27,7 @@
             <Button x:Name="do_calculation" Content="Рассчитать" HorizontalAlignment="Left" Margin="55,207,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
 
 
-            <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" Checked="Spaces_check_Checked" Unchecked="Spaces_check_Unchecked"/>
             <CheckBox Content="Выемы" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="paint_calcs_combobox" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="206" SelectionChanged="Paint_calcs_combobox_SelectionChanged" SelectedValue="0" SelectedIndex="0">
                 <StackPanel Orientation="Horizontal" x:Name="assd">
@@ -68,7 +68,7 @@
 
 
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="189" Margin="15,302,0,0" VerticalAlignment="Top" Width="532">
+        <Grid x:Name="space_grid" HorizontalAlignment="Left" Height="189" Margin="15,302,0,0" VerticalAlignment="Top" Width="532">
             <TextBox x:Name="space_width_textbox" HorizontalAlignment="Left" Height="23" Margin="20,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="132"/>
             <TextBox x:Name="space_height_textbox" HorizontalAlignment="Left" Height="23" Margin="177,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="116"/>
             <Button x:Name="add_free_space" Content="Добавить проем" HorizontalAlignment="Left" Margin="319,31,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_5" Height="23"/>
