@@ -37,18 +37,18 @@ namespace WpfApp1
         string centim_en = "cm";
         string inch_ru = "дюйм";
         string inch_en = "inch";
-        string width_ru = "Ширина";
-        string width_en = "Width";
-        string lenght_ru = "Длина";
-        string lenght_en = "Lenght";
-        string height_ru = "Высота";
-        string height_en = "Height";
+        string width_ru = "Ширина комнаты";
+        string width_en = "Room width";
+        string lenght_ru = "Длина комнаты";
+        string lenght_en = "Room lenght";
+        string height_ru = "Высота комнаты";
+        string height_en = "Room height";
         string wallarea_ru = "Площадь стен";
         string wallarea_en = "Wallarea";
         string perimetr_ru = "Периметр";
         string perimetr_en = "Perimetr";
         string groundarea_ru = "Площадь пола/потолка";
-        string groundarea_en = "Ground area/хз как на анг";
+        string groundarea_en = "Ground/ceiling area";
         float wallarea = 0;
         float perimetr = 0;
         float groundarea = 0;
@@ -250,11 +250,23 @@ namespace WpfApp1
 
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-            
-
-
-
-        
+        }
+        Boolean visible_grid1 = true;
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (visible_grid1)
+            {
+                grid_default_simple.Visibility = Visibility.Visible;
+                visible_grid1 = !visible_grid1;
+            }
+            else
+            {
+                grid_default_simple.Visibility = Visibility.Hidden;
+                visible_grid1 = !visible_grid1;
+            }
+        }
     }
 }

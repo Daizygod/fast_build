@@ -6,27 +6,74 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="780">
-        <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="291,59,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="371,59,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3"/>
-        <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="130,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
-        <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="287,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="434,184,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
+    <Grid HorizontalAlignment="Left" Height="403" Margin="0,-43,0,0" VerticalAlignment="Top" Width="770">
+        <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="36*"/>
+                <ColumnDefinition Width="641*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Расчёт комнаты без потолка" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click_4" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Grid x:Name="grid_default_simple" HorizontalAlignment="Left" Height="360" Margin="10,50,0,0" VerticalAlignment="Top" Width="780">
+            <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="176,28,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+            <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="256,28,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3"/>
+            <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="123,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
+            <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="280,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="427,121,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
 
-        <Label x:Name="width_label" Content="Ширина, м" HorizontalAlignment="Left" Margin="130,153,0,0" VerticalAlignment="Top" Width="136"/>
-        <Label x:Name="height_label" Content="Высота, м" HorizontalAlignment="Left" Margin="434,153,0,0" VerticalAlignment="Top" Width="141"/>
-        <Label x:Name="length_label" Content="Длина, м" HorizontalAlignment="Left" Margin="287,153,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="width_label" Content="Ширина комнаты, м" HorizontalAlignment="Left" Margin="123,90,0,0" VerticalAlignment="Top" Width="136"/>
+            <Label x:Name="height_label" Content="Высота комнаты, м" HorizontalAlignment="Left" Margin="427,90,0,0" VerticalAlignment="Top" Width="141"/>
+            <Label x:Name="length_label" Content="Длина комнаты, м" HorizontalAlignment="Left" Margin="280,90,0,0" VerticalAlignment="Top" Width="120"/>
 
 
-        <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="130,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
-        <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="287,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="434,248,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
-        <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="287,288,0,0" VerticalAlignment="Top" Width="120" Height="23" Click="Button_Click_1"/>
+            <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="123,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
+            <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="280,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="427,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
+            <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="648,181,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
 
 
-        <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="130,224,0,0" VerticalAlignment="Top" Width="152"/>
-        <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="287,224,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="434,224,0,0" VerticalAlignment="Top" Width="221"/>
+            <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="123,161,0,0" VerticalAlignment="Top" Width="152"/>
+            <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="280,161,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="427,161,0,0" VerticalAlignment="Top" Width="221"/>
+            <ListBox HorizontalAlignment="Left" Height="87" Margin="123,303,0,0" VerticalAlignment="Top" Width="459"/>
+            <ComboBox HorizontalAlignment="Left" Margin="548,25,0,0" VerticalAlignment="Top" Width="184" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                        обычная комната
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                        скошенный потолок
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                        разная высота углов
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                        не прямые углы между стен
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+            <Label Content="Выбор типа расчёта" HorizontalAlignment="Left" Margin="427,22,0,0" VerticalAlignment="Top"/>
+            <CheckBox Content="Проемы" HorizontalAlignment="Left" Margin="648,126,0,0" VerticalAlignment="Top"/>
+            <CheckBox Content="Выемы" HorizontalAlignment="Left" Margin="648,146,0,0" VerticalAlignment="Top"/>
+            
+
+        </Grid>
+        
     </Grid>
-
+    
 </Window>
