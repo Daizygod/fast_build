@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="544" Width="800">
     <Grid HorizontalAlignment="Left" Height="518" Margin="0,-26,0,0" VerticalAlignment="Top" Width="790">
-        <Button x:Name="paint_calcs_btn" Content="Малярные расчёты" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click_4"/>
+        <Button x:Name="paint_calcs_btn" Content="Малярные расчёты" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click_4" Height="23"/>
 
         <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
             <Grid.ColumnDefinitions>
