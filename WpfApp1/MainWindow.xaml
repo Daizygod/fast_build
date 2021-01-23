@@ -10,11 +10,7 @@
         <Button x:Name="paint_calcs_btn" Content="Малярные расчёты" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click_4" Height="23"/>
 
         <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="93*"/>
-                <ColumnDefinition Width="36*"/>
-                <ColumnDefinition Width="641*"/>
-            </Grid.ColumnDefinitions>
+           
 
 
             <Button x:Name="Main_menu_btn" Content="Главное меню" HorizontalAlignment="Left" Margin="13,37,0,0" VerticalAlignment="Top" Width="173" Grid.ColumnSpan="3" Click="Main_menu_btn_Click" FontSize="14"/>
