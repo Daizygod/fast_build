@@ -19,16 +19,26 @@ namespace WpfApp1
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     /// 
+
     public partial class MainWindow : Window
     {
+        string list_string;
+        ApplicationContext db;
         public MainWindow()
         {
+            db = new ApplicationContext();
+            List<user> users = db.users.ToList();
+            list_string = " ";
+            foreach (user user in users)
+            {
+                list_string += "login: " + user.Login + " | "; //+ " Email: " + user.Email + " Password: " + user.Password;
+            }
             InitializeComponent();
             grid_paint_calc.Visibility = Visibility.Hidden;
             paint_options_grid.Visibility = Visibility.Hidden;
             space_grid.Visibility = Visibility.Hidden;
         }
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -74,7 +84,7 @@ namespace WpfApp1
         float space_height;
         float space_square;
         int space_id = 0;
-        
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             height1 = float.Parse(height_textbox.Text);
@@ -91,7 +101,7 @@ namespace WpfApp1
         {
             language = !language;
             if (language)
-            {   
+            {
                 simple_room.Text = "Обычная комната";
                 centim_ln = centim_ru;
                 inch_ln = inch_ru;
@@ -231,7 +241,7 @@ namespace WpfApp1
                         measure_bt.Content = "Meters";
                         measure_ln = metr_en;
                     }
-                    
+
                     break;
                 case 2:
                     wallarea = wallarea * 100;
@@ -264,7 +274,7 @@ namespace WpfApp1
                         measure_bt.Content = "Centimetrs";
                         measure_ln = centim_en;
                     }
-                    
+
                     break;
                 case 3:
                     wallarea = wallarea * 100 / 254;
@@ -297,12 +307,12 @@ namespace WpfApp1
                         measure_bt.Content = "Inches";
                         measure_ln = inch_en;
                     }
-                    
+
                     break;
-            }    
+            }
 
         }
- 
+
         Boolean grid_paint1 = true;
 
         public object RootLayout { get; private set; }
@@ -327,7 +337,7 @@ namespace WpfApp1
 
         private void Main_menu_btn_Click(object sender, RoutedEventArgs e)
         {
-           // spaces_check = unchecked(unchecked);
+            // spaces_check = unchecked(unchecked);
 
 
             if (!grid_paint1)
@@ -338,27 +348,27 @@ namespace WpfApp1
                 space_grid.Visibility = Visibility.Hidden;
                 grid_paint1 = !grid_paint1;
             }
-            
+
         }
 
         private void Paint_calcs_combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             byte selected_type_of_calc = Convert.ToByte(paint_calcs_combobox.SelectedIndex + 1);
             //MessageBox.Show(selected_type_of_calc.ToString());
-            switch(selected_type_of_calc)
+            switch (selected_type_of_calc)
             {
                 case 1:
 
-                break;
+                    break;
                 case 2:
 
-                break;
+                    break;
                 case 3:
 
-                break;
+                    break;
                 case 4:
 
-                break;
+                    break;
             }
         }
 
@@ -368,16 +378,16 @@ namespace WpfApp1
             space_width = float.Parse(space_width_textbox.Text);
             space_height = float.Parse(space_height_textbox.Text);
             space_square = space_width * space_height;
-            space_listbox.Items.Add("Проем №" + space_id + ", Ширина - " + space_width +  ", Высота - " + space_height + ", Площадь - " + space_square + " - " + measure_ln + "\u00B2");
-           // space_width_listbox.Items.Add(space_width);
-           // space_height_listbox.Items.Add(space_height);
-           // space_square_listbox.Items.Add(space_width* space_height);
+            space_listbox.Items.Add("Проем №" + space_id + ", Ширина - " + space_width + ", Высота - " + space_height + ", Площадь - " + space_square + " - " + measure_ln + "\u00B2");
+            // space_width_listbox.Items.Add(space_width);
+            // space_height_listbox.Items.Add(space_height);
+            // space_square_listbox.Items.Add(space_width* space_height);
             //string position_of = space_height_listbox.ScrollIntoView(space_height_listbox.SelectedIndex);
-            
+
             //MessageBox.Show(selected_type_of_calc.ToString());
         }
 
-        
+
         private void Space_history_listview_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -393,7 +403,7 @@ namespace WpfApp1
             space_id = 0;
             space_listbox.Items.Clear();
         }
-        
+
         private void Spaces_check_Checked(object sender, RoutedEventArgs e)
         {
             space_grid.Visibility = Visibility.Visible;
@@ -406,6 +416,103 @@ namespace WpfApp1
         private void Register_acc_btn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Register_btn_Click(object sender, RoutedEventArgs e)
+        {
+            //test_label.Content = list_string;
+
+            string register_user_login = registration_login.Text.Trim();
+            string register_user_email = registration_email.Text.Trim().ToLower();
+            string register_user_pass1 = registration_pass1.Text.Trim();
+            string register_user_pass2 = registration_pass2.Text.Trim();
+            
+            if (register_user_login.Length < 4)
+            {
+                registration_login.ToolTip = "Длина логина должна быть больше 4 символов";
+                registration_login.BorderBrush = Brushes.Crimson;
+            } else
+            {
+                registration_login.ToolTip = null;
+                registration_login.BorderBrush = Brushes.Black;
+            }
+
+
+            if (register_user_pass1.Length < 4)
+            {
+                registration_pass1.ToolTip = "Длина пароля должна быть больше 4 символов";
+                registration_pass1.BorderBrush = Brushes.Crimson;
+            } else
+            {
+                registration_pass1.ToolTip = null;
+                registration_pass1.BorderBrush = Brushes.Black;
+            }
+
+
+            if (register_user_pass1 != register_user_pass2)
+            {
+                registration_pass1.ToolTip = "Пароли не совпадают";
+                registration_pass1.BorderBrush = Brushes.Crimson;
+                registration_pass2.ToolTip = "Пароли не совпадают";
+                registration_pass2.BorderBrush = Brushes.Crimson;
+            } else if (register_user_pass1.Length < 4)
+            {
+                
+                registration_pass1.ToolTip = "Длина пароля должна быть больше 4 символов";
+                registration_pass2.ToolTip = "Длина пароля должна быть больше 4 символов";
+            } else
+            {
+                registration_pass1.ToolTip = null;
+                registration_pass1.BorderBrush = Brushes.Black;
+                registration_pass2.BorderBrush = Brushes.Black;
+                registration_pass2.ToolTip = null;
+            }
+
+
+            if (register_user_email.Length < 5)
+            {
+                registration_email.ToolTip = "Длина почты должна быть больше 5 символов";
+                registration_email.BorderBrush = Brushes.Crimson;
+            } else
+            {
+                registration_email.ToolTip = null;
+                registration_email.BorderBrush = Brushes.Black;
+            }
+
+
+            if (!register_user_email.Contains('@') || !register_user_email.Contains('.'))
+            {
+                registration_email.ToolTip = "Почта введена неправильно";
+                registration_email.BorderBrush = Brushes.Crimson;
+            } else if (register_user_email.Length < 5)
+            {
+                registration_email.ToolTip = "Длина почты должна быть больше 5 символов";
+            } else
+            {
+                registration_email.ToolTip = null;
+                registration_email.BorderBrush = Brushes.Black;
+            }
+
+
+            if (register_user_login.Length >= 4 && register_user_pass1.Length >= 4 && register_user_pass1 == register_user_pass2 && (register_user_email.Contains('@') && register_user_email.Contains('.')))
+            {
+                registration_email.ToolTip = null;
+                registration_pass1.ToolTip = null;
+                registration_pass2.ToolTip = null;
+                registration_login.ToolTip = null;
+
+                user user = new user(register_user_login, register_user_email, register_user_pass1);
+                db.users.Add(user);
+                db.SaveChanges();
+
+                MessageBox.Show("Регистрация проведена успешно");
+            }
+        }
+
+        private void Login_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string user_login = login_textbox.Text.Trim();
+            string user_pass = pass_textbox.Text.Trim();
         }
     }
 }
