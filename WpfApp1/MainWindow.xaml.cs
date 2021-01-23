@@ -402,5 +402,10 @@ namespace WpfApp1
         {
             space_grid.Visibility = Visibility.Hidden;
         }
+
+        private void Register_acc_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
