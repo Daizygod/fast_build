@@ -28,3 +28,10 @@ D:\fast_build-main\fast_build\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.
 D:\fast_build-main\fast_build\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 D:\fast_build-main\fast_build\WpfApp1\obj\Debug\WpfApp1.exe
 D:\fast_build-main\fast_build\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\fast_build-main\fast_build\WpfApp1\bin\Debug\MaterialDesignColors.dll
+D:\fast_build-main\fast_build\WpfApp1\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\fast_build-main\fast_build\WpfApp1\bin\Debug\MaterialDesignColors.pdb
+D:\fast_build-main\fast_build\WpfApp1\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\fast_build-main\fast_build\WpfApp1\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\fast_build-main\fast_build\WpfApp1\obj\Debug\App.baml
+D:\fast_build-main\fast_build\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
