@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Name="profile_grid" x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,98 +6,234 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Строительный калькулятор" Height="544" Width="800">
-    <Grid HorizontalAlignment="Left" Height="518" Margin="0,-26,0,0" VerticalAlignment="Top" Width="790" Background="#E0FFFF">
-        <Grid x:Name="main_menu_grid" HorizontalAlignment="Left" Height="346" Margin="166,145,0,0" VerticalAlignment="Top" Width="445" d:IsHidden="True">
-            <Button x:Name="register_acc_btn" Content="Регистрация" HorizontalAlignment="Left" Margin="136,216,0,0" VerticalAlignment="Top" Width="160" Height="31" Background="Teal" Click="Register_acc_btn_Click" BorderBrush="Teal"/>
-            <Button x:Name="login_btn" Content="Войти" HorizontalAlignment="Left" Margin="136,165,0,0" VerticalAlignment="Top" Width="160" Height="31" Background="ForestGreen" BorderBrush="ForestGreen" Click="Login_btn_Click"/>
-            <TextBox x:Name="pass_textbox" HorizontalAlignment="Left" Height="28" Margin="136,118,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" Width="160" FontSize="14"/>
-            <TextBox x:Name="login_textbox" HorizontalAlignment="Left" Height="29" Margin="136,67,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Width="160" FontSize="14"/>
-        </Grid>
+        Title="Строительный калькулятор" Width="auto" WindowStartupLocation="CenterScreen">
+    <Grid Height="auto" Background="#E0FFFF" Width="auto">
 
-        <Grid x:Name="register_grid" HorizontalAlignment="Left" Height="346" Margin="15,145,0,0" VerticalAlignment="Top" Width="761">
-            <TextBox x:Name="registration_login" HorizontalAlignment="Left" Height="23" Margin="280,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Foreground="Black" Background="#00FF0000"/>
-            <TextBox x:Name="registration_email" HorizontalAlignment="Left" Height="23" Margin="280,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-            <TextBox x:Name="registration_pass1" HorizontalAlignment="Left" Height="23" Margin="280,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-            <TextBox x:Name="registration_pass2" HorizontalAlignment="Left" Height="23" Margin="280,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-            <Button x:Name="register_btn" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="280,215,0,0" VerticalAlignment="Top" Width="176" Click="Register_btn_Click"/>
-            <Label x:Name="login_label" Content="Логин" HorizontalAlignment="Left" Margin="280,12,0,0" VerticalAlignment="Top" Width="58"/>
-            <Label x:Name="email_label" Content="Почта" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top" Width="58"/>
-            <Label x:Name="pass1_label" Content="Пароль" HorizontalAlignment="Left" Margin="280,107,0,0" VerticalAlignment="Top" Width="77"/>
-            <Label x:Name="pass2_label" Content="Повторите пароль" HorizontalAlignment="Left" Margin="280,154,0,0" VerticalAlignment="Top" Width="139"/>
-            <Label x:Name="test_label" Content="1" HorizontalAlignment="Left" Margin="502,90,0,0" VerticalAlignment="Top" Width="189"/>
-        </Grid>
-
-        <Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="770" Margin="0,50,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height='*'/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width='*'/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="grid_menu" HorizontalContentAlignment="Stretch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="#FF009FFF"  >
+            <!--<Grid x:Name="grid_menu" HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="961" Margin="10,50,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="93*"/>
                 <ColumnDefinition Width="36*"/>
                 <ColumnDefinition Width="476*"/>
                 <ColumnDefinition Width="165*"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
+
+            <Grid VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height='*'/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width='*'/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Main_menu_btn" Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Content="Главное меню" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Center" Click="Main_menu_btn_Click" FontSize="14" Height="31" Background="#FF1E51FF" BorderBrush="DodgerBlue" />
+                <Button x:Name="about_btn" Grid.Row="0" Grid.Column="1" Content="О программе" HorizontalAlignment="Right" Margin="0,0,85,0" VerticalAlignment="Top" Width="130" Height="30" Click="Button_Click_6" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="4.266" AngleY="-0.081"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="1.166" Y="0.136"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="exit_account_btn" Content="Выйти" Grid.Row="0" Grid.Column="1" Margin="0,0,0,7" VerticalAlignment="Top" Height="31" Background="Crimson" BorderBrush="Crimson" Click="Exit_account_btn_Click" HorizontalAlignment="Right"/>
+                <Button x:Name="language_bt" Grid.Row="0" Grid.Column="0" Content="English" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Top" Click="Button_Click_2" RenderTransformOrigin="0.511,0.483" FontSize="14" BorderBrush="DodgerBlue" Background="DodgerBlue" IsEnabled="False"/>
+                <Button x:Name="measure_bt" Grid.Row="0" Grid.Column="0" Content="Метры" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Click="Button_Click_3" FontSize="14" Height="32" Background="DodgerBlue" BorderBrush="DodgerBlue" IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox x:Name="register_grid" HorizontalContentAlignment="Stretch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" d:IsHidden="True" >
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="registration_login" Height="23" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Foreground="Black" Background="#00FF0000"/>
+                <TextBox x:Name="registration_email" Height="23" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
+                <PasswordBox x:Name="registration_pass1" Height="23" Margin="0,131,0,0" VerticalAlignment="Top" Width="176"/>
+                <PasswordBox x:Name="registration_pass2" Height="23" Margin="0,178,0,0" VerticalAlignment="Top" Width="176"/>
+                <Button x:Name="register_btn" Content="Зарегестрироваться" Margin="0,215,0,0" VerticalAlignment="Top" Width="auto" Click="Register_btn_Click"/>
+                <Label x:Name="login_label" Content="Логин" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="email_label" Content="Почта" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="pass1_label" Content="Пароль" HorizontalAlignment="Left" Margin="0,107,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="pass2_label" Content="Повторите пароль" HorizontalAlignment="Left" Margin="0,154,0,0" VerticalAlignment="Top"/>
+
+                <Button Content="Назад" Margin="0,252,0,0" VerticalAlignment="Center" Width="auto" Click="Button_Click_7"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="main_menu_grid" HorizontalContentAlignment="Stretch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" d:IsHidden="True" >
+            <!--<Grid x:Name="main_menu_grid" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Left" Height="346" Margin="206,145,0,0" VerticalAlignment="Top" Width="558">-->
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="login_textbox" Height="29" Margin="0,67,0,0"  VerticalAlignment="Top" Width="176" FontSize="14" CaretBrush="DarkGreen" KeyDown="login_key_enter"/>
+                <PasswordBox x:Name="pass_textbox" Height="28" Margin="0,118,0,0" VerticalAlignment="Top" Width="176" FontSize="14" KeyDown="login_key_enter"/>
+                <Button x:Name="login_btn" Content="Войти" Margin="0,180,0,0" VerticalAlignment="Top" Width="176" Height="31" Background="ForestGreen" BorderBrush="ForestGreen" Click="Login_btn_Click"/>
+                <Button x:Name="register_acc_btn" Content="Регистрация" Margin="0,216,0,0" VerticalAlignment="Top" Width="176" Height="31" Background="Teal" Click="Register_acc_btn_Click" BorderBrush="Teal"/>
+                <Label x:Name="login_label1" Content="Логин" Margin="0,50,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="login_label1_Copy" Content="Пароль" Margin="0,101,0,0" VerticalAlignment="Top"/>
+                <Button Content="Тестовый режим" VerticalAlignment="Top" Width="176" Margin="0,252,0,0" Click="Button_Click_9" Background="#FFFF9700" BorderBrush="Red" Foreground="#DD000000"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="menu2_grid" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,110,0,0" VerticalAlignment="Top" Header="Меню" d:IsHidden="True">
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="history_button" Grid.Column="0" Content="Админ панель" Margin="0,0,0.4,0" VerticalAlignment="Top" Height="32" Background="RoyalBlue" BorderBrush="RoyalBlue" Click="history_button_Click"/>
+                <Button x:Name="account_info_btn" Grid.Column="1" Content="Личный кабинет" Margin="0" VerticalAlignment="Top" Height="32" Background="#FF12ABC3" BorderBrush="#FF029FCD" Click="Account_info_btn_Click"/>
+                <Button x:Name="paint_calcs_btn" Grid.Column="2" Content="Малярные расчёты" Margin="0" VerticalAlignment="Top" Click="Button_Click_4" Height="32" BorderBrush="DodgerBlue" Background="DodgerBlue"/>
+                <Button x:Name="history_btn" Grid.Column="3" Content="История расчётов" Margin="0" VerticalAlignment="Top" Background="#FF43B204" BorderBrush="#FF00A000" Click="profile_btn_Click"/>
+            </Grid>
+        </GroupBox>
 
 
-            <Button x:Name="Main_menu_btn" Content="Главное меню" HorizontalAlignment="Left" Margin="13,44,0,0" VerticalAlignment="Top" Width="183" Grid.ColumnSpan="3" Click="Main_menu_btn_Click" FontSize="14" Height="31" Background="DodgerBlue" BorderBrush="DodgerBlue"/>
-            <Button x:Name="language_bt" Content="English" HorizontalAlignment="Left" Margin="13,7,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_2" RenderTransformOrigin="0.511,0.483" FontSize="14" BorderBrush="DodgerBlue" Background="DodgerBlue"/>
-            <Button x:Name="measure_bt" Content="Метры" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" Height="32" Background="DodgerBlue" BorderBrush="DodgerBlue"/>
-            <Button x:Name="history_button" Content="История расчётов" Grid.Column="2" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" Width="158" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
-            <Button x:Name="account_info_btn" Content="Личный кабинет" Grid.Column="2" HorizontalAlignment="Left" Margin="84,45,0,0" VerticalAlignment="Top" Width="158" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
-            <Button x:Name="exit_account_btn" Content="Выйти из аккаунта" Grid.Column="2" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="159" Height="31" Background="Crimson" BorderBrush="Crimson"/>
-            <Button x:Name="paint_calcs_btn" Content="Малярные расчёты" HorizontalAlignment="Left" Margin="13,92,0,0" VerticalAlignment="Top" Width="181" Click="Button_Click_4" Height="32" Grid.ColumnSpan="3" BorderBrush="DodgerBlue" Background="DodgerBlue"/>
-        </Grid>
-        <Grid x:Name="paint_options_grid" HorizontalAlignment="Left" Height="285" Margin="547,186,0,0" VerticalAlignment="Top" Width="229" d:IsHidden="True">
-            <Button x:Name="do_calculation" Content="Рассчитать" HorizontalAlignment="Left" Margin="55,207,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="Button_Click_1" Cursor="Hand"/>
+        <GroupBox x:Name="profile_grid1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Header="Профиль" d:IsHidden="True">
+            <Grid>
+                <TextBox x:Name="login_info_textbox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="ваш логин" VerticalAlignment="Top" Width="199" Margin="5,5,5,0"/>
+                <TextBox x:Name="mail_info_textbox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="ваша почта" VerticalAlignment="Top" Width="199" Margin="5,45,5,0"/>
+                <Button Content="Применить изменения" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="199" IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="grid_paint_calc" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,120,0,0" Header="Малярные расчёты">
+            <Grid VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="width_textbox" Grid.Column="0"  Height="23" Margin="5,74,5,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"/>
+                <TextBox x:Name="length_textbox" Grid.Column="1" Height="23" Margin="5,74,5,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"/>
+                <TextBox x:Name="height_textbox" Grid.Column="2" Height="23" Margin="5,74,5,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"/>
+
+                <Label x:Name="width_label" Content="Ширина комнаты, м" Grid.Column="0" Margin="0,43,0,0" VerticalAlignment="Top" Width="136" HorizontalAlignment="Left"/>
+                <Label x:Name="height_label" Content="Длина комнаты, м" Grid.Column="1" Margin="0,43,0,0" VerticalAlignment="Top" Width="141" HorizontalAlignment="Left"/>
+                <Label x:Name="length_label" Content="Высота комнаты, м" Grid.Column="2" Margin="0,43,0,0" VerticalAlignment="Top" Width="120" HorizontalAlignment="Left"/>
+                <Label Content="Размеры комнаты" HorizontalAlignment="Left" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+                <Grid x:Name="height2_grid" Height="60" VerticalAlignment="Top" Margin="0,104,0,0">
+                    <TextBox x:Name="height2_textbox" Height="23" Margin="5,27,5,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"/>
+                    <Label x:Name="height2_label" Content="Высота 2, комнаты" Margin="5,3,5,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Grid>
+                <Grid x:Name="paint_options_grid" Grid.Column="4" Grid.RowSpan="3" Margin="0">
+                    <Button x:Name="do_calculation" Content="Рассчитать" Margin="5,0,5,110" VerticalAlignment="Bottom" Height="29" Click="Button_Click_1" Cursor="Hand" Background="#FF1D8100" BorderBrush="#FF008306"/>
+                    <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Checked="Spaces_check_Checked" Unchecked="Spaces_check_Unchecked"/>
+                    <ComboBox x:Name="paint_calcs_combobox" Margin="0,10,0,0" VerticalAlignment="Top" SelectionChanged="Paint_calcs_combobox_SelectionChanged" SelectedValue="-1" Height="30" Width="170">
+                        <StackPanel Orientation="Horizontal" x:Name="assd">
+                            <TextBlock x:Name="simple_room" Text="Обычная комната"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="angle_room" Text="Скошеным потолком"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="different_high" Text="Разная высота стен"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="sad" Text="Углы между стенами не 90°"/>
+                        </StackPanel>
+                    </ComboBox>
+                    <Button x:Name="clear_button" Content="Очистить всё" Margin="5,0,5,5" VerticalAlignment="Bottom" Height="29" Click="Clear_button_Click" Background="#FFC97700" BorderBrush="#FF9C7200"/>
+                    <Button x:Name="add_room_button" Content="Добавить комнату" Margin="5,0,5,75" VerticalAlignment="Bottom" Height="29" Background="#FF0BB3C3" BorderBrush="#FF3AB7B5" Click="add_room_button_Click"/>
+                    <Button x:Name="finish_button" Content="Готово" Margin="5,0,5,40" VerticalAlignment="Bottom" Height="29" Background="#FF155BB4" BorderBrush="#FF4647A0" Click="finish_button_Click"/>
+                </Grid>
+                <Grid x:Name="space_grid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" d:IsHidden="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="space_width_textbox" Grid.Column="0" Height="23" Margin="5,31,5,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="space_height_textbox" Grid.Column="1" Height="23" Margin="5,31,5,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+                    <Button x:Name="add_free_space" Grid.Column="2" Content="Добавить проем" Margin="5,22,5,0" VerticalAlignment="Top" Click="Button_Click_5" Height="32" Background="#FF3A56B7"/>
+                    <Label x:Name="space_width_label"  Content="Ширина проема" Grid.Column="0" Margin="5,5,5,0" VerticalAlignment="Top"/>
+                    <Label x:Name="space_height_label" Content="Высота проема" Grid.Column="1" Margin="5,5,5,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="space_listbox" Grid.Row="1" Margin="5,5,5,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
+                </Grid>
+                <TextBlock x:Name="textblock_paint_result" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="0,5,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+            </Grid>
 
 
-            <CheckBox x:Name="spaces_check" Content="Проемы" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" Checked="Spaces_check_Checked" Unchecked="Spaces_check_Unchecked"/>
-            <CheckBox Content="Выемы" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="paint_calcs_combobox" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="206" SelectionChanged="Paint_calcs_combobox_SelectionChanged" SelectedValue="0" SelectedIndex="0">
-                <StackPanel Orientation="Horizontal" x:Name="assd">
-                    <TextBlock x:Name="simple_room" Text="Обычная комната"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="angle_room" Text="Скошеным потолком"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="different_high" Text="Разная высота стен"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="sad" Text="Углы между стенами не 90°"/>
-                </StackPanel>
-            </ComboBox>
-            <Button x:Name="clear_button" Content="Очистить всё" HorizontalAlignment="Left" Margin="55,238,0,0" VerticalAlignment="Top" Width="120" Height="25" Click="Clear_button_Click"/>
-        </Grid>
-        <Grid x:Name="grid_paint_calc" HorizontalAlignment="Left" Height="174" Margin="15,123,0,0" VerticalAlignment="Top" Width="537" d:IsHidden="True">
-
-            <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="23" Margin="13,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="136"/>
-            <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="23" Margin="170,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="height_textbox" HorizontalAlignment="Left" Height="23" Margin="317,74,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="155"/>
-
-            <Label x:Name="width_label" Content="Ширина комнаты, м" HorizontalAlignment="Left" Margin="13,43,0,0" VerticalAlignment="Top" Width="136"/>
-            <Label x:Name="height_label" Content="Высота комнаты, м" HorizontalAlignment="Left" Margin="317,43,0,0" VerticalAlignment="Top" Width="141"/>
-            <Label x:Name="length_label" Content="Длина комнаты, м" HorizontalAlignment="Left" Margin="170,43,0,0" VerticalAlignment="Top" Width="120"/>
+        </GroupBox>
 
 
-            <TextBox x:Name="wallArea_textbox" HorizontalAlignment="Left" Height="23" Margin="13,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136"/>
-            <TextBox x:Name="perimetr_textbox" HorizontalAlignment="Left" Height="23" Margin="170,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="ground_textbox" HorizontalAlignment="Left" Height="23" Margin="317,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="155"/>
-
-
-            <Label x:Name="wallArea_label" Content="Площадь стен, м" HorizontalAlignment="Left" Margin="13,114,0,0" VerticalAlignment="Top" Width="152"/>
-            <Label x:Name="perimetr_label" Content="Периметр" HorizontalAlignment="Left" Margin="170,114,0,0" VerticalAlignment="Top" Width="120"/>
-            <Label x:Name="groundarea_label" Content="Площадь пола/потолка" HorizontalAlignment="Left" Margin="317,114,0,0" VerticalAlignment="Top" Width="199"/>
-            <Label Content="Размеры комнаты" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-
-
-        </Grid>
-        <Grid x:Name="space_grid" HorizontalAlignment="Left" Height="189" Margin="15,302,0,0" VerticalAlignment="Top" Width="532" d:IsHidden="True">
-            <TextBox x:Name="space_width_textbox" HorizontalAlignment="Left" Height="23" Margin="20,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="space_height_textbox" HorizontalAlignment="Left" Height="23" Margin="177,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="116"/>
-            <Button x:Name="add_free_space" Content="Добавить проем" HorizontalAlignment="Left" Margin="319,31,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_5" Height="23"/>
-            <Label x:Name="space_width_label" Content="Ширина проема" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Width="132"/>
-            <Label x:Name="space_height_label" Content="Высота проема" HorizontalAlignment="Left" Margin="177,5,0,0" VerticalAlignment="Top" Width="132"/>
-            <ListBox x:Name="space_listbox" HorizontalAlignment="Left" Height="100" Margin="20,69,0,0" VerticalAlignment="Top" Width="396" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
-        </Grid>
+        <GroupBox x:Name="history_grid" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="5,136,5,0" Header="История расчётов" d:IsHidden="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="calcs_out_listview" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionChanged="calcs_out_listview_SelectionChanged" Margin="0" HorizontalAlignment="Center">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding id_calc}" />
+                            <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding date_calc}" />
+                            <GridViewColumn Header="Тип расчёта" DisplayMemberBinding="{Binding type_calc}" />
+                            <GridViewColumn Header="Площадь стен" DisplayMemberBinding="{Binding square_calc}" />
+                            <GridViewColumn Header="Площадь потолка" DisplayMemberBinding="{Binding square2_calc}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="Удалить" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="4.8,0,0,0" VerticalAlignment="Bottom" Width="89" Click="Button_Click_8"/>
+                <TextBox x:Name="deleted_calcs_id_textbox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Height="32" Margin="5,0" TextWrapping="Wrap" Text="id" VerticalAlignment="Center" Width="120"/>
+                <Button Content="Экспорт в EXCEL" Grid.Column="1" HorizontalAlignment="Left" Margin="119.8,0,0,0" Width="146" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="16,4" Click="Button_Click_10" Height="32" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="admin_grid" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="5,136,5,0" Header="История расчётов" d:IsHidden="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="users_listview" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionChanged="calcs_out_listview_SelectionChanged" Margin="0" HorizontalAlignment="Center">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding user_id}" />
+                            <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding user_login}" />
+                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding user_mail}" />
+                            <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding user_pass}" />
+                            <GridViewColumn Header="Администратор" DisplayMemberBinding="{Binding user_admin}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="delete_user_button" Content="Удалить" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="4.8,0,0,0" VerticalAlignment="Bottom" Width="89" Click="delete_user_button_Click"/>
+                <TextBox x:Name="deleted_user_id_textbox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Height="32" Margin="5,0" TextWrapping="Wrap" Text="id" VerticalAlignment="Center" Width="120"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 
