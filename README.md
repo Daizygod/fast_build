@@ -1,3 +1,11 @@
+# Warning! the new code is on the another reposetory, this repository officialy died
+
+https://github.com/Daizygod/paint_calculator_diploma
+
+
+
+
+
 # Buildind calculator, diploma project by Daizygod 
 
 > NOTE: It`s my first WPF desktop application for windows on github, which help with paint calculations.
